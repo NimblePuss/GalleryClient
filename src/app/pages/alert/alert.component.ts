@@ -1,0 +1,24 @@
+import { Component, OnInit, OnDestroy} from '@angular/core';
+import { AlertService } from '../../services/alert/alert.service';
+
+@Component({
+  moduleId: module.id,
+  selector: 'app-alert',
+  templateUrl: './alert.component.html',
+  styleUrls: ['./alert.component.sass']
+})
+export class AlertComponent implements OnInit {
+   message: any;
+
+   constructor(private alertService: AlertService) {
+   }
+   ngOnInit() {
+     this.alertService.getMessage().subscribe(message => { this.message = message; });
+   }
+ 
+   ngOnDestroy(): void {
+    
+   }
+
+
+}

@@ -1,0 +1,66 @@
+.col-md-6
+    margin: 0 auto;
+.btn-primary.disabled, .btn-primary:disabled
+    cursor: not-allowed;
+
+.btnLogin
+    max-width: 100%;
+    width: 100%;
+    text-transform: uppercase;
+.form-group
+    position: relative;
+.form-login
+    // max-width: 40%;
+    width: 100%;
+    margin: 30px auto;
+// i
+//     font-family: FontAwesome;
+//     position: absolute;
+//     transform: translateY(-50%);
+//     top: 50%;
+//     left: 10px;
+.iLogin
+    position: relative;
+    input
+        padding-left: 25px;
+        
+.iLogin:before
+    content: "\F2BD";
+    font-family: FontAwesome;
+    font-size: 16px;
+    color: gray;
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+.iPassw
+    position: relative;
+    &:before
+        content: "\F023";
+        font-family: FontAwesome;
+        font-size: 16px;
+        color: gray;
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+    input
+        padding-left: 25px;
+        
+input.ng-touched.ng-invalid
+    border-color: red;
+input.ng-touched.ng-valid 
+    border: solid green 1px;
+.btn-default
+    max-width: 100%;
+    background: grey;
+    width: 100%;
+    margin-top: 15px;
+    border: 1px solid gray;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    &:hover
+        background: #ffffff;
+        color: gray;
+        cursor: pointer;

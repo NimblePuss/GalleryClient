@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="container">
+    <div class="col-md-6">
+      <div *ngIf="isLoginError" class="alert alert-danger">
+          <i class="fas fa-exclamation-circle"></i>
+          Incorrect Login or password
+      </div>
+        <form [formGroup]="userForm" novalidate class="form-login">
+            <div class="form-group">
+              <div class="iLogin">
+                <!-- <i class="fas fa-user-circle"></i> -->
+                <input class="form-control" placeholder="Login" formControlName="login">
+              </div>
+              <div *ngIf="userForm.controls['login'].hasError('required') &&  userForm.controls['login'].touched" class="alert alert-danger">
+                You must include a login.
+              </div>
+              <div *ngIf="userForm.controls['login'].hasError('minlength') &&  userForm.controls['login'].touched" class="alert alert-danger">
+                LENGTH!!.
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="iPassw">
+                  <input class="form-control" placeholder="Password" type="password" formControlName="password" required>
+              </div>
+              <div *ngIf="userForm.controls['password'].hasError('required') &&  userForm.controls['password'].touched" class="alert alert-danger">
+                  You must include a password.
+                </div>
+            </div>
+            <div class="form-group">
+              <input type="submit" class="btn btn-primary btnLogin" [disabled]="!userForm.valid" (click)='onSubmit()' value="Login">
+            </div>
+          </form>
+          
+    </div>
+  </div>
+</div>

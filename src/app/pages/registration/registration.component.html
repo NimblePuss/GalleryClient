@@ -1,0 +1,99 @@
+<div class="row">
+  <div class="container">
+    <div class="col-md-offset-2 col-md-6 ">
+        <h2>Sign Up</h2>
+        <form [formGroup]="myFormRegistration" 
+              novalidate
+              (ngSubmit)="onSubmit(myFormRegistration)"
+              >
+
+          <fieldset formGroupName="user">
+            <div class="form-group">
+              <input class="form-control" 
+                     formControlName="Name"
+                     id="Name"
+                     name="Name"
+                     placeholder="Name" type="text" required >
+              <div *ngIf="formRegistrationErrors.Name" 
+                    class="alert alert-danger" >
+                {{ formRegistrationErrors.Name }}
+              </div>
+            </div>
+
+            <div class="form-group">
+              <input class="form-control"
+                     name="Login" 
+                     formControlName="Login"
+                     id="Login"
+                     placeholder="Login" type="text" required>
+              <div *ngIf="formRegistrationErrors.Login" class="alert alert-danger" >
+                {{formRegistrationErrors.Login}}
+              </div>
+            </div>
+
+            <div class="form-group">
+              <input class="form-control" 
+                     name="Email"
+                     formControlName="Email"
+                     id="Email"
+                     placeholder="Email" type="email" value="" required>
+              <div *ngIf="formRegistrationErrors.Email" class="alert alert-danger" >
+                {{ formRegistrationErrors.Email }}
+              </div>
+            </div>
+
+            <div class="form-group">
+              <input name="Password"
+                     formControlName="Password"
+                     id="Password"
+                     placeholder="Password" 
+                     type="password" 
+                     class="form-control" required>
+              <div *ngIf="formRegistrationErrors.Password" class="alert alert-danger" >
+                {{ formRegistrationErrors.Password }}
+              </div>
+            </div>
+
+            <div class="form-group">
+              <input name="ConfirmPassword"
+                     formControlName="ConfirmPassword"
+                     id="ConfirmPassword"
+                     placeholder="Confirm Password" 
+                     type="password" 
+                     class="form-control" required >
+              <div *ngIf="formRegistrationErrors.ConfirmPassword" class="alert alert-danger" >
+               {{ formRegistrationErrors.ConfirmPassword }}
+              </div>
+            </div>
+           
+            <div class="form-group">       
+              <div class="userAva" *ngIf="localUrl == null">
+                <img src="{{filePath}}" alt="Avatar" class="thumb thumb-default"/>
+              </div>
+              <div class="userAva" *ngIf="localUrl != null">
+                  <img src="{{localUrl}}" alt="Avatar" class="thumb "/>
+                </div>
+              <input type="file" 
+                     class="file"
+                     id="Image"
+                     name="Image" (change)="onChange($event)"
+                     accept=".jpeg, .jpg, .png, .gif">
+              
+            </div>
+
+            <div class="form-group">
+              <input class="btn btn-success form-control"
+                     type="submit" 
+                     [disabled]="!myFormRegistration.valid" 
+                     value="Sign Up" ><br>
+              <input class="btn btn-default" value="Cancel" type="reset">
+            </div>
+    
+        
+          </fieldset>
+    </form>
+   </div>
+  </div>
+</div>
+
+
